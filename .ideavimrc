@@ -44,8 +44,6 @@ map <C-]> gt
 map <C-d> <C-d>zz
 map <C-u> <C-u>zz
 
-map } }zz
-map { {zz
 map <C-s> <Action>(MoveEditorToOppositeTabGroup)
 map <leader>z <Action>(MaximizeEditorInSplit)
 
@@ -56,16 +54,17 @@ cnoremap <C-v> <C-r>"
 
 """""""""""""""""""""""	Intellij actions """""""""""""""""""""""
 " navigation
-nmap <C-p> <Action>(GotoFile)
-nmap <C-j> <Action>(GotoClass)
+nmap <leader>sf <Action>(GotoFile)
+nmap <leader>sc <Action>(GotoClass)
 nmap <leader>q <Action>(CloseAllEditorsButActive)
 nmap <leader>Q <Action>(CloseAllEditors)
-nmap <esc> <Action>(HideAllWindows)
+
 " ideavimrc
 map <leader>si :source ~/.ideavimrc<CR>
+map s :action VimCancelExEntry<cr>
 
 " linters
-vnoremap /= ReformatCode
+map <leader>F <Action>(ReformatCode)
 
 " intellisense & shit
 map <leader>gi <Action>(FindUsages)
@@ -73,10 +72,11 @@ nmap U <Action>(ShowUsages)
 nmap gi <Action>(GotoImplementation)
 nmap ge <Action>(ShowErrorDescription)
 map <leader>gd <Action>(QuickImplementations)
-nmap <leader>gr <Action>(FindInPath)
-vmap <leader>gr <Action>(FindSelectionInPath)
+nmap <leader>sw <Action>(FindInPath)
+vmap <leader>sw <Action>(FindSelectionInPath)
 map <leader>p <Action>(ParameterInfo)
-
+map <leader>R <Action>(RenameElement)
+imap <C-y> <Action>(EditorChooseLookupItem)
 " debugging
 map <leader>B <Action>(Debugger.RemoveAllBreakpoints)
 map <leader>b <Action>(ToggleLineBreakpoint)
