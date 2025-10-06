@@ -58,6 +58,7 @@ nmap <leader>sf <Action>(GotoFile)
 nmap <leader>sc <Action>(GotoClass)
 nmap <leader>q <Action>(CloseAllEditorsButActive)
 nmap <leader>Q <Action>(CloseAllEditors)
+imap jj <esc>
 
 " ideavimrc
 map <leader>si :source ~/.ideavimrc<CR>
@@ -65,6 +66,9 @@ map s :action VimCancelExEntry<cr>
 
 " linters
 map <leader>F <Action>(ReformatCode)
+
+" git
+map <leader>g <Action>(Git.Branches)
 
 " intellisense & shit
 map <leader>gi <Action>(FindUsages)
@@ -93,4 +97,3 @@ map <leader>1 <Action>(HarpoonerOpenFile0)
 map <leader>2 <Action>(HarpoonerOpenFile1)
 map <leader>3 <Action>(HarpoonerOpenFile2)
 map <leader>4 <Action>(HarpoonerOpenFile3)
-map <leader>5 <Action>(HarpoonerOpenFile4)
