@@ -14,6 +14,10 @@
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.extra": {
+      "rev": "7a5231f",
+      "src": "https://github.com/nvim-mini/mini.extra"
+    },
     "mini.pick": {
       "rev": "08a7220",
       "src": "https://github.com/nvim-mini/mini.pick"
