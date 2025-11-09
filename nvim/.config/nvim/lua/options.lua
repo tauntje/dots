@@ -10,6 +10,11 @@ opt.relativenumber = true
 -- autocomplete
 opt.completeopt = "noinsert,menuone,popup"
 
+-- command line completion
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
 -- tabs and scrolloff
 opt.expandtab = true
 opt.tabstop = 4

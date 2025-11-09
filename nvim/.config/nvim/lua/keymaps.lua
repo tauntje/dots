@@ -1,5 +1,6 @@
 -- deactivate keymaps
 vim.keymap.set("n", "s", "<Nop>")
+vim.keymap.set("n", "<C-b>", "<Nop>")
 
 -- menu
 vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
