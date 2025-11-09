@@ -29,6 +29,7 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 #aliases
 alias cdn="cd ~/Documents/notes"
 alias vim="nvim"
+alias v="~/.local/share/applications/nvim-linux-x86_64.appimage"
 alias ll="eza -Ahl"
 alias ls="eza -hl"
 
