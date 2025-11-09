@@ -2,10 +2,11 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+    { src = "https://github.com/saghen/blink.cmp",               version = vim.version.range("^1") },
+    { src = "https://github.com/rafamadriz/friendly-snippets" }
 })
 vim.diagnostic.config({ virtual_text = true })
-
+require("mason").setup()
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
     sync_install = false,
@@ -18,14 +19,7 @@ require("nvim-treesitter.configs").setup({
     modules = {}
 })
 
-require("mason").setup()
-vim.lsp.enable({
-    "lua_ls",
-    "ts_ls",
-    "bash-language-server",
-    "marksman"
-})
-
+vim.lsp.enable({ "lua_ls", "ts_ls", "bash-language-server", "marksman" })
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
@@ -65,10 +59,9 @@ require('blink.cmp').setup({
     cmdline = {
         keymap = {
             preset = 'inherit',
-            ['<CR>'] = { 'accept_and_enter', 'fallback' },
         },
         completion = { menu = { auto_show = true } },
     },
-
-    sources = { default = { "lsp" } }
+    sources = { default = { "lsp", "snippets" } },
+    snippets = { opts = { friendly_snippets = true } }
 })

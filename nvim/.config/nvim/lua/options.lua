@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 local opt = vim.o
 
 -- gui options
@@ -31,27 +30,4 @@ opt.showmode = true
 -- misc
 vim.cmd("set noswapfile")
 vim.cmd("set clipboard=unnamedplus")
-
--- md specific
---
--- vim.cmd("set spelllang=fr")
--- local isWriteMode = false
--- vim.keymap.set("n", "<leader>tp",
---     function()
---         if (not isWriteMode) then
---             vim.cmd("set spelllang=fr")
---             vim.cmd("set spell")
---             vim.cmd("set linebreak")
---             vim.keymap.set("n", "j", "gj")
---             vim.keymap.set("n", "k", "gk")
---             isWriteMode = true
---             else
---             vim.cmd("set spell!")
---             vim.cmd("set linebreak!")
---             vim.keymap.set("n", "j", "j")
---             vim.keymap.set("n", "k", "k")
---             isWriteMode = false
---         end
---     end
--- )
 

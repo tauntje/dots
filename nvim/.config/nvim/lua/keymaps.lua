@@ -24,9 +24,12 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- lines
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- md specific
 vim.keymap.set("v", "<leader>ft", ":! tr -s ' ' | column -t -s '|' -o '|'")
+vim.keymap.set("n", "<leader>np", ":NoNeckPain<CR>")
 
 -- lsp
 vim.keymap.set({"n", "v"}, "<leader>F", vim.lsp.buf.format)

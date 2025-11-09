@@ -4,6 +4,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.pick" },
     { src = "https://github.com/nvim-mini/mini.extra" },
     { src = "https://github.com/ThePrimeagen/harpoon", version="harpoon2"},
+    { src = "https://github.com/shortcuts/no-neck-pain.nvim" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
 })
 -- most important part
 vim.cmd("colorscheme tokyonight-storm")
