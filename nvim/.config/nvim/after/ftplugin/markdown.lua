@@ -7,3 +7,8 @@ vim.cmd([[
  setlocal formatoptions+=t
 ]])
 vim.keymap.set("n", "<leader>c", "1z=")
+require("no-neck-pain").setup({ 
+    autocmds={
+          enableOnVimEnter = true,
+    }
+})

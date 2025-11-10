@@ -13,7 +13,9 @@ vim.cmd("colorscheme tokyonight-storm")
 -- fuzzy finder
 require("mini.extra").setup()
 require("mini.pick").setup()
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+
+vim.keymap.set("n", "<leader>sn", function() MiniPick.builtin.files(nil, { source = { cwd = "~/.config/nvim" } }) end)
+vim.keymap.set("n", "<leader>sf", ":Pick files <CR>")
 vim.keymap.set("n", "<leader>gd", ":Pick lsp scope=('definition')<CR>")
 vim.keymap.set("n", "<leader>ds", ":Pick lsp scope=('document_symbol')<CR>")
 vim.keymap.set("n", "<leader>sw", ":Pick grep live<CR><CR>")
