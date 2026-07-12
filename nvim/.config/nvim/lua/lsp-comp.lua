@@ -19,7 +19,7 @@ require("nvim-treesitter.configs").setup({
     modules = {}
 })
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "bash-language-server", "marksman" })
+vim.lsp.enable({ "lua_ls", "ts_ls", "bash-language-server", "marksman", "lemminx", "prettier" })
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
