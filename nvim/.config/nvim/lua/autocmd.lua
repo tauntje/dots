@@ -6,3 +6,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	vim.highlight.on_yank()
 	end,
 })
+
+vim.api.nvim__buf_debug_extmarks(
+    1, true, true
+)
+

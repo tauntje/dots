@@ -74,5 +74,6 @@ require('blink.cmp').setup({
         },
         completion = { menu = { auto_show = true } },
     },
+    snippets = { preset = 'luasnip' },
     sources = { default = { 'lsp', 'snippets' } },
 })
