@@ -1,27 +1,13 @@
 vim.pack.add({
-    { src = "https://github.com/folke/tokyonight.nvim" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/nvim-mini/mini.pick" },
-    { src = "https://github.com/nvim-mini/mini.extra" },
+    { src = "https://github.com/folke/tokyonight.nvim" },
     { src = "https://github.com/ThePrimeagen/harpoon", version="harpoon2"},
     { src = "https://github.com/shortcuts/no-neck-pain.nvim" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
 })
--- most important part
+
 vim.cmd("colorscheme tokyonight-storm")
 
--- fuzzy finder
-require("mini.extra").setup()
-require("mini.pick").setup()
-
-vim.keymap.set("n", "<leader>sn", function() MiniPick.builtin.files(nil, { source = { cwd = "~/.config/nvim" } }) end)
-vim.keymap.set("n", "<leader>sf", ":Pick files <CR>")
-vim.keymap.set("n", "<leader>gd", ":Pick lsp scope=('definition')<CR>")
-vim.keymap.set("n", "<leader>ds", ":Pick lsp scope=('document_symbol')<CR>")
-vim.keymap.set("n", "<leader>sw", ":Pick grep live<CR><CR>")
-vim.keymap.set("n", "<leader>sh", ":Pick help<CR>")
-
--- harpoon
 local harpoon = require("harpoon")
 harpoon:setup({
     settings = {

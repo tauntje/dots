@@ -5,6 +5,8 @@ opt.termguicolors = true
 opt.winborder = "rounded"
 opt.number = true
 opt.relativenumber = true
+opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- autocomplete
 opt.completeopt = "noinsert,menuone,popup"
@@ -27,7 +29,9 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.showmode = true
 
+-- undo files
+opt.undofile = true
+
 -- misc
 vim.cmd("set noswapfile")
-vim.cmd("set clipboard=unnamedplus")
-
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
