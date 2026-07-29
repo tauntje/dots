@@ -28,10 +28,9 @@ Plug 'preservim/nerdtree'
 """""""""""""""""""""""	PERSONAL CONFIG """""""""""""""""""""""
 set NERDTree
 let mapleader = " "
-set syntax
-set nocompatible
 set ignorecase
 set smartcase
+set visualbell
 set number relativenumber
 
 " Screens, tabs and tab navigation
