@@ -80,6 +80,11 @@ vmap <leader>sw <Action>(FindSelectionInPath)
 map <leader>p <Action>(ParameterInfo)
 map <leader>R <Action>(RenameElement)
 imap <C-y> <Action>(EditorChooseLookupItem)
+
+" continue plugin
+map <leader>cc <Action>(continue.focusContinueInput)
+map <leader>ci <Action>(continue.inlineEdit)
+
 " debugging
 map <leader>B <Action>(Debugger.RemoveAllBreakpoints)
 map <leader>b <Action>(ToggleLineBreakpoint)
