@@ -3,7 +3,6 @@ vim.pack.add({
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/saghen/blink.cmp',            version = vim.version.range('^1') },
     { src = 'https://github.com/rafamadriz/friendly-snippets' },
-    { src = 'https://github.com/L3MON4D3/LuaSnip',            version = vim.version.range '2.*' },
 })
 
 vim.diagnostic.config({ virtual_text = true })
@@ -16,7 +15,7 @@ vim.lsp.enable({
     'marksman',
     'lemminx',
     'prettier',
-    'angular-language-server'
+    'angularls'
 })
 
 vim.lsp.config('lua_ls', {
@@ -28,6 +27,7 @@ vim.lsp.config('lua_ls', {
         }
     }
 })
+
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -74,6 +74,5 @@ require('blink.cmp').setup({
         },
         completion = { menu = { auto_show = true } },
     },
-    snippets = { preset = 'luasnip' },
     sources = { default = { 'lsp', 'snippets' } },
 })
