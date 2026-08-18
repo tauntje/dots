@@ -3,7 +3,7 @@ vim.keymap.set('n', 's', '<Nop>')
 vim.keymap.set('n', '<C-b>', '<Nop>')
 
 -- menu
-vim.keymap.set('n', '<C-e>', vim.cmd.Ex)
+vim.keymap.set('n', '<C-e>', function() require('mini.files').open(MiniFiles.get_latest_path()) end)
 
 -- search
 vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)

@@ -47,7 +47,7 @@ require('blink.cmp').setup({
     signature = { enabled = true },
     keymap = {
         preset = 'default',
-        ['<Tab>'] = {},
+        ['<Tab>'] = { 'select_and_accept' },
         ['<S-Tab>'] = {},
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-y>'] = { 'select_and_accept' },
