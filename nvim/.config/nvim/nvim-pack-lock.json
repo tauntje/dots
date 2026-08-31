@@ -26,6 +26,10 @@
       "rev": "c3d96b6",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
+    "nvim": {
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "nvim-lspconfig": {
       "rev": "2010fc6",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -45,10 +49,6 @@
     "telescope.nvim": {
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
-    },
-    "tokyonight.nvim": {
-      "rev": "5da1b76",
-      "src": "https://github.com/folke/tokyonight.nvim"
     }
   }
 }

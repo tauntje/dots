@@ -1,12 +1,12 @@
 vim.pack.add({
     { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/folke/tokyonight.nvim" },
-    { src = "https://github.com/ThePrimeagen/harpoon", version="harpoon2"},
+    { src = "https://github.com/catppuccin/nvim" },
+    { src = "https://github.com/ThePrimeagen/harpoon",                     version = "harpoon2" },
     { src = "https://github.com/shortcuts/no-neck-pain.nvim" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
 })
 
-vim.cmd("colorscheme tokyonight-storm")
+vim.cmd.colorscheme "catppuccin-nvim"
 
 local harpoon = require("harpoon")
 harpoon:setup({
