@@ -27,7 +27,21 @@ vim.lsp.config('lua_ls', {
         }
     }
 })
+vim.lsp.config('angularls', {
+    cmd = function(dispatchers, config)
+        local root = config.root or vim.fn.getcwd()
+        local node_modules = vim.fs.joinpath(root, 'node_modules')
 
+        return vim.lsp.rpc.start({
+            'ngserver',
+            '--stdio',
+            '--tsProbeLocations',
+            node_modules,
+            '--ngProbeLocations',
+            node_modules,
+        }, dispatchers)
+    end,
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
