@@ -35,4 +35,18 @@ opt.undofile = true
 
 -- misc
 vim.cmd("set noswapfile")
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+
+vim.g.clipboard = {
+  name = "tmux",
+  copy = {
+    ["+"] = { "tmux", "load-buffer", "-" },
+    ["*"] = { "tmux", "load-buffer", "-" },
+  },
+  paste = {
+    ["+"] = { "tmux", "save-buffer", "-" },
+    ["*"] = { "tmux", "save-buffer", "-" },
+  },
+  cache_enabled = 0,
+}
+
+vim.o.clipboard = "unnamedplus"
