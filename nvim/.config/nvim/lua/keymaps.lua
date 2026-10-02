@@ -32,4 +32,6 @@ vim.keymap.set("v", "<leader>ft", ":! tr -s ' ' | column -t -s '|' -o '|'")
 vim.keymap.set('n', '<leader>np', ':NoNeckPain<CR>')
 
 -- lsp
-vim.keymap.set({ 'n', 'v' }, '<leader>F', vim.lsp.buf.format)
+vim.keymap.set({ 'n', 'v' }, '<leader>F', function()
+    require('conform').format({ async = true, lsp_format = 'fallback' })
+end, { desc = 'Format buffer' })
