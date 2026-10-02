@@ -11,8 +11,8 @@ bindkey -v
 alias cdn='cd -- "$HOME/Documents/notes"'
 alias vim='nvim'
 alias v='nvim' # The old AppImage target under ~/.local/share/applications is absent.
-alias ll='eza -Ahl'
-alias ls='eza -hl'
+alias ll='eza -Ahl --icons'
+alias ls='eza -hl --icons'
 
 export EDITOR=nvim
 export VISUAL=nvim
