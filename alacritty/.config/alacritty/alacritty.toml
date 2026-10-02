@@ -2,16 +2,16 @@
 size = 12.0
 
 [font.bold]
-family = "Hack Nerd Font Mono"
+family = "JetBrains Mono"
 
 [font.bold_italic]
-family = "Hack Nerd Font Mono"
+family = "JetBrains Mono"
 
 [font.italic]
-family = "Hack Nerd Font Mono"
+family = "JetBrains Mono"
 
 [font.normal]
-family = "Hack Nerd Font Mono"
+family = "JetBrains Mono"
 
 [window]
 opacity = 0.90

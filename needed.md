@@ -2,4 +2,4 @@
 - Sway
 - Wofi
 - Waybar
-- Hack Nerd Font Mono
+- JetBrains Mono

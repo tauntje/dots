@@ -65,6 +65,7 @@ color-scheme='prefer-dark'
 enable-hot-corners=false
 font-antialiasing='grayscale'
 font-hinting='slight'
+monospace-font-name='JetBrains Mono 11'
 text-scaling-factor=0.89999999999999991
 toolkit-accessibility=false
 

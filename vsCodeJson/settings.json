@@ -7,8 +7,8 @@
     //THEME
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "catppuccin-macchiato",
-    "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'",
-    "editor.fontFamily": "'Hack Nerd Font'",
+    "terminal.integrated.fontFamily": "'JetBrains Mono'",
+    "editor.fontFamily": "'JetBrains Mono'",
     "editor.fontSize": 15,
     //SECURITY
     "security.workspace.trust.untrustedFiles": "open",
