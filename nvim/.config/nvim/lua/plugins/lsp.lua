@@ -1,12 +1,3 @@
-vim.pack.add({
-    { src = 'https://github.com/mason-org/mason.nvim' },
-    { src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim' },
-    { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/stevearc/conform.nvim' },
-    { src = 'https://github.com/saghen/blink.cmp',            version = vim.version.range('^1') },
-    { src = 'https://github.com/rafamadriz/friendly-snippets' },
-})
-
 vim.filetype.add({
     extension = {
         mdx = 'markdown',
@@ -48,10 +39,10 @@ vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
             workspace = {
-                library = vim.api.nvim_get_runtime_file('', true)
+                library = vim.api.nvim_get_runtime_file('', true),
             },
-        }
-    }
+        },
+    },
 })
 
 vim.lsp.config('angularls', {
@@ -140,6 +131,11 @@ vim.lsp.config('ts_ls', {
 vim.lsp.config('marksman', { filetypes = { 'markdown' } })
 vim.lsp.config('lemminx', { filetypes = { 'xml', 'xsd', 'xslt', 'svg' } })
 
+-- Advertise Blink's completion/snippet support to every configured LSP.
+vim.lsp.config('*', {
+    capabilities = require('blink.cmp').get_lsp_capabilities(),
+})
+
 vim.lsp.enable({
     'lua_ls',
     'ts_ls',
@@ -151,15 +147,19 @@ vim.lsp.enable({
     'cssls',
     'eslint',
 })
+
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+    group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
     callback = function(event)
-        local map = function(keys, func, desc, mode)
-            mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        local function map(keys, func, desc, mode)
+            vim.keymap.set(mode or 'n', keys, func, {
+                buffer = event.buf,
+                desc = 'LSP: ' .. desc,
+            })
         end
-        map('<leader>R', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, 'Code [A]ction', { 'n', 'x' })
+
+        map('<leader>R', vim.lsp.buf.rename, 'Rename symbol')
+        map('<leader>ca', vim.lsp.buf.code_action, 'Code action', { 'n', 'x' })
         map('<leader>co', function()
             if vim.fn.exists(':LspTypescriptSourceAction') == 2 then
                 vim.cmd('LspTypescriptSourceAction')
@@ -171,18 +171,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
             if vim.fn.exists(':LspEslintFixAll') == 2 then
                 vim.cmd('LspEslintFixAll')
             end
-        end, 'ESLint Fix All')
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        map('[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
-        map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
-        map('<leader>e', vim.diagnostic.open_float, 'Line Diagnostics')
+        end, 'ESLint fix all')
+        map('K', vim.lsp.buf.hover, 'Hover documentation')
+        map('gD', vim.lsp.buf.declaration, 'Go to declaration')
+        map('[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
+        map(']d', vim.diagnostic.goto_next, 'Next diagnostic')
+        map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
         map('<leader>ih', function()
             if vim.lsp.inlay_hint then
                 local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
                 vim.lsp.inlay_hint.enable(not enabled, { bufnr = event.buf })
             end
-        end, 'Toggle Inlay Hints')
+        end, 'Toggle inlay hints')
     end,
 })
 
@@ -243,7 +243,7 @@ require('blink.cmp').setup({
         documentation = {
             auto_show = true,
             auto_show_delay_ms = 200,
-        }
+        },
     },
     cmdline = {
         keymap = {
