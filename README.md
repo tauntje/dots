@@ -20,7 +20,7 @@ sudo apt install -y build-essential curl fzf git gpg jq \
 
 This installs Debian-packaged shell, search, Git, container, and Python tools.  `build-essential` provides GCC and Make. Other essentials CLI tools instruction below.
 
-### 1a. Install Carapace, eza, and zoxide
+#### Install Carapace, eza, and zoxide
 
 | Utility |
 | --- |
