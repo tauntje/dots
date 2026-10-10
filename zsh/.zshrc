@@ -8,11 +8,12 @@ export PATH
 # Match the vi-style command-line editing from Bash.
 bindkey -v
 
-alias cdn='cd -- "$HOME/Documents/notes"'
 alias vim='nvim'
 alias v='nvim' # The old AppImage target under ~/.local/share/applications is absent.
 alias ll='eza -Ahl --icons'
+alias llt='eza -Ahl --icons --tree --level 2'
 alias ls='eza -hl --icons'
+alias lt='eza -hl --icons --tree --level 2'
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -25,18 +26,6 @@ fcd() {
   local dir
   dir=$(find . -type d -print 2>/dev/null | fzf) || return
   [[ -n "$dir" ]] && cd -- "$dir"
-}
-
-fim() {
-  local file
-  file=$(find . -type f -print 2>/dev/null | fzf) || return
-  [[ -n "$file" ]] && "$EDITOR" "$file"
-}
-
-ifzf() {
-  local file
-  file=$(find . -type f -print 2>/dev/null | fzf) || return
-  [[ -n "$file" ]] && kitten icat "$file"
 }
 
 # nvm is loaded from the same location as in Bash; Bash-only completion is omitted.
