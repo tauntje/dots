@@ -1,0 +1,28 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Common generated files
+node_modules/
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Pi runtime, credentials, and downloaded installation
+pi/.pi/agent/auth.json
+pi/.pi/agent/sessions/
+pi/.pi/agent/sessions/**
+pi/.pi/agent/install/
+pi/.pi/agent/models-store.json
