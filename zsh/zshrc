@@ -1,4 +1,0 @@
-alias vim="nvim"
-alias ll="eza -Ahl"
-alias ls="eza -hl"
-eval "$(starship init zsh)"

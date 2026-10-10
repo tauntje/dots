@@ -1,8 +1,0 @@
-prompt=
-color=.config/wofi/colors
-allow_images=true
-insensitive=true
-no_actions=true
-key_backward=Ctrl-p
-key_forward=Ctrl-n
-location=center

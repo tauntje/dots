@@ -1,71 +1,90 @@
-# dots
-Dotfiles for simple Linux Distro using Gnome, tmux and nvim. Vim VS Code jsons also available. The goal is to start from a fresh linux install and have a somewhat painless experience for a destkop. Configuration is VERY minimalist and uses Gnome default as well as keybinding to achieve a somewhat WM-eske experience. 
+# Dots
 
-# Linux Setup
-## Gnome
-**For some skill-issue reasons, I'm never able to dump and load my gnome config, so I document the little I change here. gnome_settings.ini is there if you want to try your luck**
+Personal configuration for a keyboard-focused development environment. The repository covers Linux desktops and shells, terminal applications, Neovim, herdr, Visual Studio Code, and selected Windows and macOS tools.
 
-### Auto config that never works because I suck
-From the home directory
-Dumping your config:
+Configurations are organized as [GNU Stow](https://www.gnu.org/software/stow/) packages. Install the programs you plan to use, then stow their package directories from the repository root.
+
+## Linux setup
+
+The commands below target Debian 13. Package names may differ on other distributions.
+
+### 1. Install the command-line tools
+
+Install the Debian-packaged tools and basic dependencies:
+
+```bash
+sudo apt update
+sudo apt install -y build-essential curl fzf git gpg jq \
+  lazygit pipx podman podman-compose python3 ripgrep stow tmux unzip wget zsh
+```
+
+This installs Debian-packaged shell, search, Git, container, and Python tools.  `build-essential` provides GCC and Make. Other essentials CLI tools instruction below.
+
+### 1a. Install Carapace, eza, and zoxide
+
+| Utility |
+| --- |
+| [Starship](https://starship.rs/) |
+| [Carapace](https://github.com/carapace-sh/carapace-bin) |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) |
+| [Atuin](https://atuin.sh/) |
+| [eza](https://github.com/eza-community/eza) |
+| [fzf](https://github.com/junegunn/fzf) |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) |
+| [jq](https://github.com/jqlang/jq) |
+| [lazygit](https://github.com/jesseduffield/lazygit) |
+| [tmux](https://github.com/tmux/tmux) |
+| [Podman](https://podman.io/) and [podman-compose](https://github.com/containers/podman-compose) |
+| nvm, Node.js, npm |
+| Python 3 and pipx |
+
+## Fonts
+
+Hack Nerd Mono is the configured monospace font for the terminal emulators, Waybar, Wofi, Visual Studio Code, and GNOME's monospace preference.
+
+Get it from [Nerf font aggregator](https://www.nerdfonts.com/font-downloads), add it to `~/.local/share/fonts/` and run `sudo fc-cache -fv` to update it.
+
+## GNOME desktop
+
+The GNOME setup is intentionally light-touch and relies on GNOME defaults. Install Tweaks and Dconf Editor for the settings described below:
+
+```bash
+sudo apt install gnome-tweaks dconf-editor
+```
+
+### Dconf backup and restore
+
+The repository includes `gnome_settings.dconf` as a reference snapshot. From the repository root, export a new snapshot with:
+
 ```bash
 dconf dump / > gnome_settings.dconf
 ```
 
-Get the gnome_settings.ini file in your home folder.
-Loading a config:
+Restore a snapshot with:
+
 ```bash
 dconf load -f / < gnome_settings.dconf
 ```
 
-### Manual config
-- Install GnomeTweaks and Dconf editor
-- Getting 8 workspaces:
-```bash
-$ gsettings set org.gnome.desktop.wm.preferences num-workspaces 8
-```
-- Removing ['<Super>n'] (n = app number in dock) to launch a specific app to bind it to switching a worskapce: -> Dconf editor: org/gnome/shell/keybindings/switch-to-application-n => remove them all
-- Setting ['<Super>n'] (n = workspace number) to switch to a specific workspace -> Dconf editor: org/gnome/desktop/wm/keybindings/switch-to-workspace-n => set to ['<Super>n']
-- Setting ['<Shift><Super>n'] (n = workspace number) to move an app to a specific workspace -> Dconf editor: org/gnome/desktop/wm/keybindings/move-to-workspace-n => set to ['<Shift><Super>n']**
+### Workspaces and keybindings
 
-Other settings are mostly kept default. <Super> is always used for window management and resizing, and custom shortcuts are sprinkled here and there when needed
+Create eight workspaces:
 
-## Tmux setup
-Run the following command (curtesy of : https://github.com/tmux-plugins/tpm)
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 8
 ```
 
-to run tmux and get the extensions running. To install extensions in Tmux: <leader>I and reload the config with <leader>r
-  
-## Setup VS Code
-### Extensions
-- Live server
-- Material icon theme
-- One Dark pro
-- Prettier
-- Vim
+In Dconf Editor, under `org/gnome/shell/keybindings`, clear `switch-to-application-1` through `switch-to-application-9` to free the Super-number shortcuts. Then configure:
 
-## Install fonts
-Hack
-Hack Nerd
+- `org/gnome/desktop/wm/keybindings/switch-to-workspace-N` as `['<Super>N']`.
+- `org/gnome/desktop/wm/keybindings/move-to-workspace-N` as `['<Shift><Super>N']`.
 
-# Windows setup
-## Vim setup
-- .ideavimrc (working with Intellij and vim configuration) 
-- _vimrc basic configuration when using Vim on Windows
+Replace `N` with the workspace number. Super is the primary window-management key; other GNOME settings remain close to their defaults.
 
-## Intellij setup
-Settings are synched accross device but just in case:
-- Install IdeaVim
-- Install Pokeprogress (impossible to code without it)
-- Install Atmon one dark theme and materia icons
-- Install Harpooner
+## macOS and AeroSpace
 
-## Anything else that has a <program>/.config/<program> path
-- Install Stow
-- run
+The `aerospace/` directory contains a keyboard-driven AeroSpace layout configuration. AeroSpace expects its main configuration at `~/.aerospace.toml`; copy the repository file into place:
+
 ```bash
-  stow <program>  
+stow aerospace
 ```
-- profit
