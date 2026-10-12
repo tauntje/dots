@@ -2,7 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 vim.g.snacks_animate = false
-
+vim.g.autoformat = false
 -- Use WSLg's Wayland clipboard bridge to share with Windows without starting
 -- a Windows process for every clipboard operation.
 local wl_copy = "/home/ahorguel/.local/bin/wl-copy"
